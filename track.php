@@ -1,14 +1,14 @@
 <?php
 
   $jsonArray = array( );
-  if (isset($_REQUEST['timeSpend']) && isset($_REQUEST['taskID']) && isset($_REQUEST['projectID']) && isset($_REQUEST['userID'])) {
+  if (isset($_POST['timeSpend']) && isset($_POST['taskID']) && isset($_POST['projectID']) && isset($_POST['userID'])) {
 
-    $timeSpend = $_REQUEST['timeSpend'];
-    $taskID = $_REQUEST['taskID'];
-    $projectID = $_REQUEST['projectID'];
-    $userID = $_REQUEST['userID'];
-    $startTime = strtotime($_REQUEST['startTime']);
-    $endTime = strtotime($_REQUEST['endTime']);
+    $timeSpend = $_POST['timeSpend'];
+    $taskID = $_POST['taskID'];
+    $projectID = $_POST['projectID'];
+    $userID = $_POST['userID'];
+    $startTime = strtotime($_POST['startTime']);
+    $endTime = strtotime($_POST['endTime']);
 
 
     include 'DB.php';
