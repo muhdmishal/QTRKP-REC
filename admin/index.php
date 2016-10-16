@@ -16,7 +16,7 @@
       AND password = '$password'
       AND role = '1'
       AND status = '1'";
-      
+
     $result = $con->query($sql);
 
     if ($result->num_rows > 0) {
@@ -28,6 +28,7 @@
       }
     }
     else {
+      $_SESSION['status'] = FALSE;
       $error = 'Username and Password doesnot match.';
     }
   }
