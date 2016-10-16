@@ -129,9 +129,7 @@
           <td>
             Time Spend
           </td>
-          <td>
-            Estimated Time
-          </td>
+          
           <td>
             User Assigned
           </td>
@@ -160,9 +158,7 @@
               }
              ?>
           </td>
-          <td>
-            <?php echo $row['estimatedtime'] ?>
-          </td>
+
           <td>
             <?php echo $row['name'] ?>
           </td>
