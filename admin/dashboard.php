@@ -73,7 +73,17 @@
             <?php echo $row['client_name'] ?>
           </td>
           <td>
-            Total Time Spend
+            <?php
+              $proid = $row['id'];
+              $sql = "SELECT SUM(totaltime) AS totaltimespend
+                FROM tbl_track
+                WHERE project_id = '$proid'
+                AND status = '1'";
+              $time = $con->query($sql);
+              while ($totime = $time->fetch_assoc()) {
+                echo gmdate("H:i:s", $totime['totaltimespend']);
+              }
+             ?>
           </td>
           <td>
             <?php echo $row['startdate'] ?>
@@ -82,7 +92,7 @@
             <?php echo $row['deliverydate'] ?>
           </td>
           <td>
-            <a href="editproject.php?id=<?php echo $row['id'] ?>">Edit</a>
+            <a href="projectuser.php?projectid=<?php echo $row['id'] ?>">Users</a>
           </td>
         </tr>
         <?php } ?>
@@ -99,9 +109,7 @@
           <td>
             Name
           </td>
-          <td>
-            Edit
-          </td>
+
         </tr>
 
         <?php while ($row = $users->fetch_assoc()) { ?>
@@ -112,9 +120,7 @@
           <td>
             <?php echo $row['name'] ?>
           </td>
-          <td>
-            <a href="edituser.php<?php echo $row['id'] ?>">Edit User</a>
-          </td>
+
         </tr>
         <?php } ?>
       </table>
