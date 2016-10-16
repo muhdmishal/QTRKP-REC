@@ -130,6 +130,9 @@
             Time Spend
           </td>
           <td>
+            Estimated Time
+          </td>
+          <td>
             User Assigned
           </td>
         </tr>
@@ -145,14 +148,29 @@
             <?php echo $row['description'] ?>
           </td>
           <td>
-            Time Spend
+            <?php
+              $tasid = $row['id'];
+              $sql = "SELECT SUM(totaltime) AS totaltimespend
+                FROM tbl_track
+                WHERE task_id = '$tasid'
+                AND status = '1'";
+              $time = $con->query($sql);
+              while ($totime = $time->fetch_assoc()) {
+                echo gmdate("H:i:s", $totime['totaltimespend']);
+              }
+             ?>
+          </td>
+          <td>
+            <?php echo $row['estimatedtime'] ?>
           </td>
           <td>
             <?php echo $row['name'] ?>
           </td>
         </tr>
         <?php } ?>
+
       </table>
+      <a href="addtask.php?projectid=<?php echo $projectid ?>">Add Task</a>
     </div>
   </body>
 </html>
