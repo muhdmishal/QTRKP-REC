@@ -1,9 +1,10 @@
 <?php
 
   $jsonArray = array( );
-  if (isset($_POST['timeSpend']) && isset($_POST['taskID']) && isset($_POST['projectID']) && isset($_POST['userID'])) {
+  if (isset($_POST['timeSpend']) && isset($_POST['browserSpend']) && isset($_POST['taskID']) && isset($_POST['projectID']) && isset($_POST['userID'])) {
 
     $timeSpend = $_POST['timeSpend'];
+    $browserSpend = $_POST['browserSpend'];
     $taskID = $_POST['taskID'];
     $projectID = $_POST['projectID'];
     $userID = $_POST['userID'];
@@ -20,8 +21,8 @@
     }
 
     $sql = "INSERT INTO `tbl_track`
-    (`starttime`, `endtime`, `totaltime`, `status`, `employee_id`, `project_id`, `task_id`)
-    VALUES ('$startTime', '$endTime', '$timeSpend', '1', '$userID', '$projectID', '$taskID')";
+    (`starttime`, `endtime`, `totaltime`, `browsertime`, `status`, `employee_id`, `project_id`, `task_id`)
+    VALUES ('$startTime', '$endTime', '$timeSpend','$browserSpend' , '1', '$userID', '$projectID', '$taskID')";
 
     $result = $con->query($sql);
 

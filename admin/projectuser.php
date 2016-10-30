@@ -63,6 +63,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a href="dashboard.php">Dashboard</a>
     <div class="">
       <h2 class="text-center"><?php echo $title ?></h2>
       <table class="center">

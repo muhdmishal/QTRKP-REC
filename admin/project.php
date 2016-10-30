@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a href="dashboard.php">Dashboard</a>
     <div class="">
       <?php while ($project = $projects->fetch_assoc()) { ?>
       <h2 class="text-center">Project : <?php echo  $project['title'] ?></h2>
@@ -127,9 +128,12 @@
             Description
           </td>
           <td>
+            Browser Time
+          </td>
+          <td>
             Time Spend
           </td>
-          
+
           <td>
             User Assigned
           </td>
@@ -144,6 +148,19 @@
           </td>
           <td>
             <?php echo $row['description'] ?>
+          </td>
+          <td>
+            <?php
+              $tasid = $row['id'];
+              $sql = "SELECT SUM(browsertime) AS browserspend
+                FROM tbl_track
+                WHERE task_id = '$tasid'
+                AND status = '1'";
+              $time = $con->query($sql);
+              while ($totime = $time->fetch_assoc()) {
+                echo gmdate("H:i:s", $totime['browserspend']);
+              }
+             ?>
           </td>
           <td>
             <?php

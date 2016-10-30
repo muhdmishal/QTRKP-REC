@@ -49,6 +49,9 @@
             Client
           </td>
           <td>
+            Time Spend on Browser
+          </td>
+          <td>
             Total Time Spend
           </td>
           <td>
@@ -75,6 +78,19 @@
           <td>
             <?php
               $proid = $row['id'];
+              $sql = "SELECT SUM(browsertime) AS browertimespend
+                FROM tbl_track
+                WHERE project_id = '$proid'
+                AND status = '1'";
+              $time = $con->query($sql);
+              while ($totime = $time->fetch_assoc()) {
+                echo gmdate("H:i:s", $totime['browertimespend']);
+              }
+             ?>
+          </td>
+          <td>
+            <?php
+              $proid = $row['id'];
               $sql = "SELECT SUM(totaltime) AS totaltimespend
                 FROM tbl_track
                 WHERE project_id = '$proid'
@@ -93,6 +109,9 @@
           </td>
           <td>
             <a href="projectuser.php?projectid=<?php echo $row['id'] ?>">Users</a>
+          </td>
+          <td>
+            <a href="project.php?projectid=<?php echo $row['id'] ?>">View Project</a>
           </td>
         </tr>
         <?php } ?>

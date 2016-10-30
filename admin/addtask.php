@@ -65,6 +65,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a href="dashboard.php">Dashboard</a>
     <div class="">
       <h2 class="text-center">Add New Task</h2>
       <form class="" action="" method="post">
@@ -101,7 +102,7 @@
               <input type="date" name="deliverydate" value="" required>
             </td>
           </tr>
-          
+
           <tr>
             <td>
               Assign User

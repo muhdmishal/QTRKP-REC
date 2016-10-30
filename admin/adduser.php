@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a href="dashboard.php">Dashboard</a>
     <div class="">
       <h2 class="text-center">Add New Employee</h2>
       <form class="" action="" method="post">
