@@ -70,7 +70,7 @@
           </tr>
           <tr>
             <td>
-              Start Name
+              Start Date
             </td>
             <td>
               <input type="date" name="startdate" value="" required>
